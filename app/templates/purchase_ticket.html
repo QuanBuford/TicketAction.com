@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Purchase Tickets{% endblock title %}
+
+{% block content %}
+<h2>Purchase Tickets for "{{ event.title }}"</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Purchase</button>
+</form>
+
+<a href="{% url 'event_list' %}">Back to Event List</a>
+{% endblock content %}

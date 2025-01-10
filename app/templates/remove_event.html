@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Remove Event{% endblock title %}
+
+{% block content %}
+<h2>Remove Event</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Remove Event</button>
+</form>
+
+<a href="{% url 'event_list' %}">Back to Event List</a>
+{% endblock content %}

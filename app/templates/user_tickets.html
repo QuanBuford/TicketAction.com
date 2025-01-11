@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Number of Tickets</h2>
+{% if tickets %}
+    <ul>
+        {% for ticket in tickets %}
+            <li>
+                <h3>{{ ticket.event.name }}</h3>
+                <p>Date: {{ ticket.event.date }}</p>
+                <p>Location: {{ ticket.event.location }}</p>
+                <p>Quantity: {{ ticket.quantity }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have not purchased any tickets yet.</p>
+{% endif %}
+<a href="{% url 'event_list' %}">Back to Event List</a></p>
+{% endblock content %}

@@ -17,6 +17,7 @@
         <p>Price: ${{ event.price }}</p>
         <a href="{% url 'purchase_ticket' event.id %}">Purchase Ticket</a> |
         <a href="{% url 'remove_event' event.id %}">Remove Event</a>
+        <a href="{% url 'user_tickets' %}">My Tickets</a>
     </li>
     {% endfor %}
 </ul>

@@ -28,6 +28,7 @@ urlpatterns = [
     path('events/', app.views.event_list, name='event_list'),
     path('events/<int:event_id>/edit/', app.views.edit_event, name='edit_event'),
     path('events/<int:event_id>/purchase/', app.views.purchase_ticket, name='purchase_ticket'),
+    path('user_tickets/', app.views.user_tickets, name='user_tickets'),
     path('events/add/', app.views.add_event, name='add_event'),
     path('events/remove/<int:event_id>/', app.views.remove_event, name='remove_event'),
 ]

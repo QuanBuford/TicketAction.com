@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Event
+from .models import Event, Ticket
 from .forms import EventForm, TicketPurchaseForm
 
 # Create your views here.
@@ -95,3 +95,7 @@ def purchase_ticket(request, event_id):
     else:
         form = TicketPurchaseForm()
     return render(request, 'purchase_ticket.html', {'event': event, 'form': form})
+
+def user_tickets(request):
+    tickets = Ticket.objects.filter(user=request.user)
+    return render(request, 'user_tickets.html', {'tickets': tickets})

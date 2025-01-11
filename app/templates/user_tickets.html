@@ -6,7 +6,7 @@
     <ul>
         {% for ticket in tickets %}
             <li>
-                <h3>{{ ticket.event.name }}</h3>
+                <h3>{{ ticket.event.title }}</h3>
                 <p>Date: {{ ticket.event.date }}</p>
                 <p>Location: {{ ticket.event.location }}</p>
                 <p>Quantity: {{ ticket.quantity }}</p>

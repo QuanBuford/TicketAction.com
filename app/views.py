@@ -90,11 +90,19 @@ def purchase_ticket(request, event_id):
         if form.is_valid():
             quantity = form.cleaned_data['quantity']
             total_price = quantity * event.price
+            ticket, created = Ticket.objects.get_or_create(
+                user=request.user,
+                event=event,
+                defaults={'quantity': 0}
+            )
+            ticket.quantity += quantity
+            ticket.save()
             messages.success(request, f'Successfully purchased {quantity} tickets for {event.title}. Total: ${total_price:.2f}')
             return redirect('event_list')
     else:
         form = TicketPurchaseForm()
     return render(request, 'purchase_ticket.html', {'event': event, 'form': form})
+
 
 def user_tickets(request):
     tickets = Ticket.objects.filter(user=request.user)

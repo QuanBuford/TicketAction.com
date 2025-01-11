@@ -26,7 +26,6 @@
                     <a href="{% url 'purchase_ticket' event.id %}">Purchase Tickets</a><br>
                     
                     {% if request.user.id == event.author.id or request.user.is_superuser %}
-                        <a href="{% url 'purchase_ticket' event.id %}">Purchase Tickets</a><br>
                         <a href="{% url 'remove_event' event.id %}">Remove Event</a><br>
                         <a href="{% url 'edit_event' event.id %}">Edit Event</a><br>
                     {% endif %}
